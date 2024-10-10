@@ -1,4 +1,3 @@
-
 const dump = [
     {
         id: 0,

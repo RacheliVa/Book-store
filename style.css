@@ -26,6 +26,10 @@ h2 {
     background-color: #000;
     padding: 10px;
     margin: 0;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
 }
 
 .content {
@@ -56,7 +60,163 @@ h2 {
 }
 
 
+Copy code
 .table {
     display: grid;
     grid-template-columns: 5% 40% 25% 10% 10% 10%;
+    background-color: #f0f0f0; /* צבע רקע בהיר יותר לשורות */
+    margin-bottom: 10px; /* רווח בין השורות */
+    border-radius: 5px; /* פינות מעוגלות */
+}
+
+.table .product-title,
+.table .product-price {
+    padding: 10px; /* רווח פנימי */
+    /* text-align: center; מרכז את הטקסט */
+}
+
+.table .product-title {
+    color: #333; /* צבע טקסט כהה */
+    font-weight: bold; /* הדגשה */
+}
+
+.table .product-price {
+    color: #000; /* צבע טקסט כהה למחירים */
+}
+
+.table button {
+    background-color: #4CAF50; /* צבע רקע לכפתורים */
+    color: white; /* צבע טקסט לבן */
+    border: none; /* ללא גבול */
+    padding: 8px 12px; /* רווח פנימי */
+    cursor: pointer; /* סמן את הכפתור */
+    border-radius: 5px; /* פינות מעוגלות */
+}
+
+.table button:hover {
+    background-color: #45a049; /* צבע רקע כשמרחפים מעל */
+}
+
+.load-button {
+    background-color: transparent; 
+    color: #fff; 
+    border: none;
+    cursor: pointer; 
+    padding: 5px 10px; 
+    font-size: 1.4rem; 
+}
+
+.load-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; /* מעל לכל */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* הוספת גלילה אם צריך */
+    background-color: rgba(0, 0, 0, 0.7); /* רקע כהה עם שקיפות */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* ממורכז במסך */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* רוחב המודל */
+}
+
+.close {
+    color: #aaa;
+    float: right; /* צמוד לימין */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #000;
+    margin: 15% auto; /* ממורכז במסך */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* רוחב המודל */
+    max-width: 400px; /* רוחב מקסימלי */
+    border-radius: 10px; /* פינות מעוגלות */
+}
+
+.modal-content h2 {
+    text-align: center; /* כותרת מרכזית */
+}
+
+label {
+    display: block; /* כל תווית תהיה בשורה חדשה */
+    margin-bottom: 5px; /* רווח מתחת לתווית */
+    font-weight: bold; 
+    color: white;
+}
+
+input[type="text"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    width: auto;
+    padding: 10px; 
+    background-color: #000; 
+    background-color: white; 
+    border: none; 
+    font-size: 1rem; 
+    cursor: pointer; 
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; 
+}
+
+.close {
+    color: #aaa;
+    float: right; 
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pagination button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.pagination button:hover {
+    background-color: #555;
 }

@@ -1,31 +1,79 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-    <body onload="renderBooks(Gdump)">
-        <header>
-            <h1>כותרת ראשית</h1>
-            <h2>כותרת משנית</h2>
-        </header>
+<body onload="loadData()">
+    <header>
+        <h1>כותרת ראשית</h1>
+        <h2>
+            <button class="load-button" onclick="showAddBookForm()">הוסף ספר</button>
+            <button class="load-button" onclick="loadFromDump()">טען ספרים</button>
+        </h2>
+    </header>
 
-        <main class="content">
-            <section class="left-section" id="book-list">
+    <main class="content">
+        <section class="left-section">
+            <div id="book-container">
+                <div id="book-list">
+                    <div class="table">
+                        <div class="header-title" onclick="sortBooks('id')">מזהה</div>
+                        <div class="header-title" onclick="sortBooks('bookName')">שם הספר</div>
+                        <div class="header-title" onclick="sortBooks('price')">מחיר</div>
+                        <div class="header-title"></div>
+                    </div>
+                    <div id="books-container"></div> <!-- הוסף כאן אלמנט עבור הספרים -->
+                </div>
+                <div id="pagination" class="pagination">
+                </div>
+            </div>
+        </section>
 
-            </section>
-            <aside class="right-section">
-                <img src="image.jpg" alt="תמונה">
-            </aside>
-        </main>
-        <script src="controler.js"></script>
-        <script src="model.js"></script>
-        <script src="view.js"></script>
+        <aside class="right-section">
+            <img src="image.jpg" alt="תמונה">
+        </aside>
+    </main>
 
-    </body>
+    <div id="add-book-form" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddBookForm()">&times;</span>
+            <h2>הוסף ספר</h2>
+            <form onsubmit="addBook(event)">
+                <label for="bookName">שם הספר:</label>
+                <input type="text" id="bookName" required>
+                <label for="price">מחיר:</label>
+                <input type="text" id="price" required>
+                <label for="bookName">image url:</label>
+                <input type="text" id="image-url">
+                <button type="submit">אישור</button>
+            </form>
+        </div>
+    </div>
 
-    </html>
+    <div id="update-book-form" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUpdateBookForm()">&times;</span>
+            <h2>עדכן ספר</h2>
+            <form onsubmit="updateBook(event)"> <!-- הוספת event -->
+                <label for="updateBookName">שם הספר:</label>
+                <input type="text" id="updateBookName" required>
+                <label for="updatePrice">מחיר:</label>
+                <input type="text" id="updatePrice" required>
+                <button type="submit">אישור</button> <!-- הכפתור נמצא כאן -->
+            </form>
+        </div>
+    </div>
+
+    <script src="controler.js"></script>
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+
+
+</body>
+
+</html>
