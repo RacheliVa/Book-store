@@ -1,15 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <script src="controler.js"></script>  
-  <script src="model.js"></script>  
-  <script src="view.js"></script>  
+    <!DOCTYPE html>
+    <html lang="en">
 
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body onload="renderBooks(Gdump)">
+        <header>
+            <h1>כותרת ראשית</h1>
+            <h2>כותרת משנית</h2>
+        </header>
+
+        <main class="content">
+            <section class="left-section" id="book-list">
+
+            </section>
+            <aside class="right-section">
+                <img src="image.jpg" alt="תמונה">
+            </aside>
+        </main>
+        <script src="controler.js"></script>
+        <script src="model.js"></script>
+        <script src="view.js"></script>
+
+    </body>
+
+    </html>
