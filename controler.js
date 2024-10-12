@@ -17,9 +17,20 @@ function updateBook(id) {
 
 
 function deleteBook(id) {
+    // מחיקת הספר מהספרים המוצגים
     Gbooks = Gbooks.filter(book => book.id !== id);
     localStorage.setItem("bookList", JSON.stringify(Gbooks)); 
-    paginateBooks(Gbooks); 
+    paginateBooks(Gbooks);
+
+    // בדיקה האם הספר שמוצג בתצוגה המוגדלת הוא אותו ספר שנמחק
+    const rightSection = document.querySelector('.right-section');
+    const displayedBookId = parseInt(rightSection.getAttribute('data-book-id'));
+
+    if (displayedBookId === id) {
+        // ניקוי התצוגה המוגדלת אם הספר שנמחק מוצג שם
+        rightSection.innerHTML = `<p>There is no book to show</p>`;
+        rightSection.removeAttribute('data-book-id'); // הסרת מזהה הספר מהתצוגה המוגדלת
+    }
 }
 
 function loadFromDump() {
@@ -69,6 +80,15 @@ function paginateBooks(books) {
 function readBook(id) {
     const book = Gbooks.find(b => b.id === id);
     const rightSection = document.querySelector('.right-section');
-    rightSection.innerHTML =getBookDetails(book);
+    rightSection.innerHTML = getBookDetails(book);
+    rightSection.setAttribute('data-book-id', id); // שמירת מזהה הספר המוצג
 }
 
+function rateBook(bookId, rating) {
+    const bookIndex = Gbooks.findIndex(b => b.id === bookId);
+    if (bookIndex !== -1) {
+        Gbooks[bookIndex].rate = rating;
+        localStorage.setItem("bookList", JSON.stringify(Gbooks)); 
+        readBook(bookId); 
+    }
+}

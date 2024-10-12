@@ -59,42 +59,38 @@ h2 {
     height: auto;
 }
 
-
-Copy code
 .table {
     display: grid;
-    grid-template-columns: 5% 40% 25% 10% 10% 10%;
-    background-color: #f0f0f0; /* צבע רקע בהיר יותר לשורות */
-    margin-bottom: 10px; /* רווח בין השורות */
-    border-radius: 5px; /* פינות מעוגלות */
+    grid-template-columns: 10% 50% 15% 25%; /* חלוקת הגריד לאחוזים */
+    background-color: #f0f0f0; 
+    margin-bottom: 10px; 
+    border-radius: 5px;
+    align-items: center;
 }
 
 .table .product-title,
 .table .product-price {
-    padding: 10px; /* רווח פנימי */
-    /* text-align: center; מרכז את הטקסט */
+    padding: 10px;
 }
 
-.table .product-title {
-    color: #333; /* צבע טקסט כהה */
-    font-weight: bold; /* הדגשה */
-}
-
-.table .product-price {
-    color: #000; /* צבע טקסט כהה למחירים */
+.table .actions { /* חלוקת משנה של הגריד לכפתורים */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* שלושה כפתורים עם רוחב שווה */
+    gap: 5px; /* רווח בין הכפתורים */
 }
 
 .table button {
-    background-color: #4CAF50; /* צבע רקע לכפתורים */
-    color: white; /* צבע טקסט לבן */
-    border: none; /* ללא גבול */
-    padding: 8px 12px; /* רווח פנימי */
-    cursor: pointer; /* סמן את הכפתור */
-    border-radius: 5px; /* פינות מעוגלות */
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-align: center;
 }
 
 .table button:hover {
-    background-color: #45a049; /* צבע רקע כשמרחפים מעל */
+    background-color: #45a049;
 }
 
 .load-button {
@@ -220,3 +216,12 @@ button[type="submit"]:hover {
 .pagination button:hover {
     background-color: #555;
 }
+
+.star {
+    font-size: 24px;
+    color: gray;
+}
+
+.star:hover {
+    color: gold;
+}F

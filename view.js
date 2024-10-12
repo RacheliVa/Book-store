@@ -1,12 +1,15 @@
 function getBook(book) {
-    return `    <div class="table">
-            <div class="product-title">${book.id}</div>
-            <div class="product-title">${book.bookName}</div>
-            <div class="product-price">${book.price} ₪</div>
+    return `    
+    <div class="table">
+        <div class="product-title">${book.id}</div>
+        <div class="product-title">${book.bookName}</div>
+        <div class="product-price">${book.price} ₪</div>
+        <div class="actions">
             <button onclick="readBook(${book.id})">קרא</button>
             <button onclick="updateBook(${book.id})">עדכן</button>
             <button onclick="deleteBook(${book.id})">מחק</button>
-        </div>`;
+        </div>
+    </div>`;
 }
 
 function renderBooks(books) {
@@ -56,15 +59,30 @@ function renderPagination(books) {
     pagination.appendChild(nextButton);
 }
 
-function getBookDetails(book){
+function getBookDetails(book) {
     return `
         <h2>פרטי הספר</h2>
         <p><strong>שם הספר:</strong> ${book.bookName}</p>
-        <p><strong>מחיר:</strong> ${book.price}</p>
+        <p><strong>מחיר:</strong> ${book.price} ₪</p>
         <p><strong>מזהה:</strong> ${book.id}</p>
-        <img src=${book.img} alt="image">
+        <img src="${book.img}" alt="${book.bookName}">
+        <p><strong>דירוג:</strong></p>
+        <div class="rating">
+            ${renderStars(book.id, book.rate)}
+        </div>
     `;
 }
+
+function renderStars(bookId, currentRating) {
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        starsHtml += `<span class="star" data-book-id="${bookId}" data-rate="${i}" onclick="rateBook(${bookId}, ${i})" style="cursor: pointer; color: ${i <= currentRating ? 'gold' : 'gray'};">&#9733;</span>`;
+    }
+    return starsHtml;
+}
+
+
+
 
 let sortDirection = 1; // משתנה שמגדיר אם המיון הוא בסדר עולה או יורד
 
