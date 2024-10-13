@@ -125,3 +125,90 @@ const dump = [
     }
 ];
 
+// const translations = {
+//     en: {
+//         title: "ERP Book",
+//         addBook: "Add Book",
+//         loadBooks: "Load Books",
+//         noBook: "There is no book to show",
+//         id: "ID",
+//         bookName: "Book Name",
+//         price: "Price",
+//         rate: "Rate",
+//         update: "Update",
+//         delete: "Delete",
+//         confirm: "Confirm",
+//         close: "Close",
+//         bookDetails: "Book Details",
+//         read: "Read", // תרגום לכפתור 'קרא'
+//         previous: "Previous", // תרגום לכפתור 'הקודם'
+//         next: "Next", // תרגום לכפתור 'הבא'
+//     },
+//     he: {
+//         title: "מערכת ניהול ספרים",
+//         addBook: "הוסף ספר",
+//         loadBooks: "טען ספרים",
+//         noBook: "אין ספר להציג",
+//         id: "מזהה",
+//         bookName: "שם הספר",
+//         price: "מחיר",
+//         rate: "דירוג",
+//         update: "עדכן",
+//         delete: "מחק",
+//         confirm: "אישור",
+//         close: "סגור",
+//         bookDetails: "פרטי ספר",
+//         read: "קרא", // תרגום לכפתור 'קרא'
+//         previous: "הקודם", // תרגום לכפתור 'הקודם'
+//         next: "הבא", // תרגום לכפתור 'הבא'
+//     }
+// };
+
+// // פונקציה לשינוי שפה
+// function changeLanguage(lang) {
+//     currentLang = lang;
+//     document.title = translations[lang].title; // שינוי כותרת הדף
+
+//     // עדכון כותרות
+//     document.querySelector('header h1').innerText = translations[lang].title;
+//     document.querySelector('.load-button:nth-child(1)').innerText = translations[lang].addBook;
+//     document.querySelector('.load-button:nth-child(2)').innerText = translations[lang].loadBooks;
+
+//     // עדכון כותרות בעמוד
+//     const headers = document.querySelectorAll('.header-title');
+//     headers[0].innerText = translations[lang].id;
+//     headers[1].innerText = translations[lang].bookName;
+//     headers[2].innerText = translations[lang].rate;
+
+//     // עדכון תוכן באזור ה-right
+//     const rightSection = document.querySelector('.right-section');
+//     rightSection.innerText = translations[lang].noBook;
+
+//     // עדכון טקסטים באלמנטים אחרים
+//     const addBookForm = document.getElementById("add-book-form");
+//     addBookForm.querySelector("h2").innerText = translations[lang].addBook;
+//     addBookForm.querySelector("label[for='bookName']").innerText = translations[lang].bookName;
+//     addBookForm.querySelector("label[for='price']").innerText = translations[lang].price;
+//     addBookForm.querySelector("button[type='submit']").innerText = translations[lang].confirm;
+
+//     const updateBookForm = document.getElementById("update-book-form");
+//     updateBookForm.querySelector("h2").innerText = translations[lang].update;
+//     updateBookForm.querySelector("label[for='updateBookName']").innerText = translations[lang].bookName;
+//     updateBookForm.querySelector("label[for='updatePrice']").innerText = translations[lang].price;
+//     updateBookForm.querySelector("button[type='submit']").innerText = translations[lang].confirm;
+
+//     // עדכון כפתורים נוספים
+//     document.querySelectorAll("[id^='delete-button']").forEach(button => {
+//         button.innerText = translations[lang].delete;
+//     });
+//     document.querySelectorAll("[id^='read-button']").forEach(button => {
+//         button.innerText = translations[lang].read;
+//     });
+//     document.querySelectorAll("[id^='update-button']").forEach(button => {
+//         button.innerText = translations[lang].update;
+//     });
+
+//     // עדכון כפתורי פגינציה
+//     document.getElementById("prev-button").innerText = translations[lang].previous;
+//     document.getElementById("next-button").innerText = translations[lang].next;
+// }

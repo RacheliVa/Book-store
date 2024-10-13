@@ -12,8 +12,8 @@
     <header>
         <h1>ERP Book</h1>
         <h2>
-            <button class="load-button" onclick="showAddBookForm()">הוסף ספר</button>
-            <button class="load-button" onclick="loadFromDump()">טען ספרים</button>
+            <button class="load-button" onclick="showAddBookForm()">Add book</button>
+            <button class="load-button" onclick="loadFromDump()">Load data</button>
         </h2>
     </header>
 
@@ -22,12 +22,14 @@
             <div id="book-container">
                 <div id="book-list">
                     <div class="table">
-                        <div class="header-title" onclick="sortBooks('id')">מזהה</div>
-                        <div class="header-title" onclick="sortBooks('bookName')">שם הספר</div>
+                        <div class="header-title" onclick="sortBooks('id')">id</div>
+                        <div class="header-title" onclick="sortBooks('bookName')">book name</div>
                         <div class="header-title" onclick="sortBooks('price')">rate</div>
                         <div class="header-title"></div>
                     </div>
-                    <div id="books-container"></div> <!-- הוסף כאן אלמנט עבור הספרים -->
+                    <div id="books-container">
+                        <!-- The books will appear here -->
+                    </div>
                 </div>
                 <div id="pagination" class="pagination">
                 </div>
@@ -42,15 +44,15 @@
     <div id="add-book-form" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeAddBookForm()">&times;</span>
-            <h2>הוסף ספר</h2>
+            <h2>Add book</h2>
             <form onsubmit="addBook(event)">
-                <label for="bookName">שם הספר:</label>
+                <label for="bookName">Book name:</label>
                 <input type="text" id="bookName" required>
-                <label for="price">מחיר:</label>
+                <label for="price">Price:</label>
                 <input type="text" id="price" required>
                 <label for="bookName">image url:</label>
                 <input type="text" id="image-url">
-                <button type="submit">אישור</button>
+                <button type="submit">OK</button>
             </form>
         </div>
     </div>
@@ -58,21 +60,26 @@
     <div id="update-book-form" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeUpdateBookForm()">&times;</span>
-            <h2>עדכן ספר</h2>
-            <form onsubmit="saveUpdatedBook(event)"> <!-- שימוש בפונקציית שמירת העדכון -->
-                <label for="updateBookName">שם הספר:</label>
+            <h2>Update book</h2>
+            <form onsubmit="saveUpdatedBook(event)"> 
+                <label for="updateBookName">Book name:</label>
                 <input type="text" id="updateBookName" required>
-                
-                <label for="updatePrice">מחיר:</label>
+
+                <label for="updatePrice">Price:</label>
                 <input type="text" id="updatePrice" required>
-                
-                <label for="updateImage">כתובת תמונה:</label>
+
+                <label for="updateImage">image url:</label>
                 <input type="text" id="updateImage">
-                
-                <button type="submit">אישור</button> <!-- כפתור אישור לשמירת העדכון -->
+
+                <button type="submit">OK</button> 
             </form>
         </div>
     </div>
+
+    <!-- <h2>
+        <button class="load-button" onclick="changeLanguage('he')">עברית</button>
+        <button class="load-button" onclick="changeLanguage('en')">English</button>
+    </h2> -->
 
     <script src="controler.js"></script>
     <script src="model.js"></script>

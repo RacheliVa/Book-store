@@ -61,7 +61,7 @@ h2 {
 
 .table {
     display: grid;
-    grid-template-columns: 10% 50% 15% 25%; /* חלוקת הגריד לאחוזים */
+    grid-template-columns: 10% 50% 15% 25%; 
     background-color: #f0f0f0; 
     margin-bottom: 10px; 
     border-radius: 5px;
@@ -73,10 +73,10 @@ h2 {
     padding: 10px;
 }
 
-.table .actions { /* חלוקת משנה של הגריד לכפתורים */
+.table .actions {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* שלושה כפתורים עם רוחב שווה */
-    gap: 5px; /* רווח בין הכפתורים */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 5px; 
 }
 
 .table button {
@@ -220,10 +220,12 @@ button[type="submit"]:hover {
 .star {
     color: gold; /* צבע הכוכבים המלאים */
     cursor: pointer; /* העכבר ייראה כמו מצביע */
+    font-size: 1.5rem; /* גם כאן אם יש צורך */
 }
 
 .star.empty {
     color: gray; /* צבע הכוכבים הריקים */
+    font-size: 1.5rem; /* גם כאן אם יש צורך */
 }
 
 .header-title {

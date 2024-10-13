@@ -8,6 +8,8 @@ function loadData() {
         Gbooks = dump;
 
     paginateBooks(Gbooks);
+    changeLanguage(currentLang); // הוספת שפה בשלב הטעינה
+
 }
 
 function saveUpdatedBook(event) {

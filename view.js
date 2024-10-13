@@ -2,7 +2,7 @@ function getStarsHtml(bookId, rate) {
     console.log(`Rendering stars for bookId ${bookId} with rate ${rate}`);
     return Array.from({ length: 5 }, (_, i) => {
         const starClass = i < rate ? "star" : "star empty";
-        return `<span class="${starClass}" onclick="handleStarClick(${bookId}, ${i})">★</span>`; 
+        return `<span class="${starClass}" onclick="handleStarClick(${bookId}, ${i})">★</span>`;
     }).join("");
 }
 
@@ -15,9 +15,9 @@ function getBook(book) {
             <span class="rating" style="pointer-events: none;">${getStarsHtml(book.id, book.rate)}</span>
         </div> 
         <div class="actions">
-            <button onclick="readBook(${book.id})">קרא</button>
-            <button onclick="updateBook(${book.id})">עדכן</button>
-            <button onclick="deleteBook(${book.id})">מחק</button>
+            <button id="read-button-${book.id}" onclick="readBook(${book.id})">read</button>
+            <button id="update-button-${book.id}" onclick="updateBook(${book.id})">update</button>
+            <button id="delete-button-${book.id}" onclick="deleteBook(${book.id})">delete</button>
         </div>
     </div>`;
 }
@@ -26,17 +26,16 @@ function getBook(book) {
 
 function renderBooks(books) {
     const booksContainer = document.getElementById("books-container");
-    booksContainer.innerHTML = books.map(getBook).join(""); 
+    booksContainer.innerHTML = books.map(getBook).join("");
 }
 
 function renderPagination(books) {
     const pagination = document.getElementById("pagination");
-    pagination.innerHTML = ""; // נקה את הפגינציה לפני יצירת חדשה
+    pagination.innerHTML = ""; 
     const totalPages = Math.ceil(books.length / booksPerPage); // חישוב מספר העמודים הכולל
 
-    // כפתור "הקודם"
     const prevButton = document.createElement("button");
-    prevButton.innerText = "הקודם";
+    prevButton.innerText = "prev";
     prevButton.disabled = currentPage === 1;
     prevButton.onclick = () => {
         if (currentPage > 1) {
@@ -49,9 +48,8 @@ function renderPagination(books) {
     for (let i = 1; i <= totalPages; i++) {
         const pageButton = document.createElement("button");
         pageButton.innerText = i;
-        pageButton.classList.toggle("active", i === currentPage); // מדגיש את העמוד הנוכחי
-        
-        // הוספת אירוע ללחיצה על כפתור העמוד
+        pageButton.classList.toggle("active", i === currentPage); 
+
         pageButton.onclick = () => {
             currentPage = i;
             paginateBooks(books);
@@ -61,7 +59,7 @@ function renderPagination(books) {
     }
 
     const nextButton = document.createElement("button");
-    nextButton.innerText = "הבא";
+    nextButton.innerText = "next";
     nextButton.disabled = currentPage === totalPages;
     nextButton.onclick = () => {
         if (currentPage < totalPages) {
@@ -108,19 +106,19 @@ function sortBooks(column) {
 }
 
 function showAddBookForm() {
-    document.getElementById("add-book-form").style.display = "block"; 
+    document.getElementById("add-book-form").style.display = "block";
 }
 
 function closeAddBookForm() {
-    document.getElementById("add-book-form").style.display = "none"; 
+    document.getElementById("add-book-form").style.display = "none";
 }
 
 function updateBook(id) {
-    const book = Gbooks.find(b => b.id === id); 
+    const book = Gbooks.find(b => b.id === id);
     if (book) {
         document.getElementById("updateBookName").value = book.bookName;
         document.getElementById("updatePrice").value = book.price;
-        document.getElementById("updateImage").value = book.img; 
+        document.getElementById("updateImage").value = book.img;
         document.getElementById("update-book-form").setAttribute("data-book-id", id);
         document.getElementById("update-book-form").style.display = "block";
     }
