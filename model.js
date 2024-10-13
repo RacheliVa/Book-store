@@ -1,12 +1,5 @@
 const dump = [
     {
-        id: 0,
-        bookName: "פיצי לומד להזהר",
-        price: 15,
-        img: "https://www.sifreiorhachaim.co.il/wp-content/uploads/2024/01/2570466.jpg",
-        rate: 0
-    },
-    {
         id: 1,
         bookName: "פיצי משמח את אמא",
         price: 20,

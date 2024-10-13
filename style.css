@@ -218,10 +218,11 @@ button[type="submit"]:hover {
 }
 
 .star {
-    font-size: 24px;
-    color: gray;
+    font-size: 24px; /* גודל הכוכב */
+    cursor: pointer; /* מאפשר להראות שהכוכב ניתן ללחיצה */
+    color: gold; /* צבע הכוכב המלא */
 }
 
-.star:hover {
-    color: gold;
-}F
+.star.empty {
+    color: lightgray; /* צבע הכוכב הריק */
+}

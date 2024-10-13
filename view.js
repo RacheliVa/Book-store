@@ -1,9 +1,16 @@
+function getStarsHtml(bookId, rate) {
+    return Array.from({ length: 5 }, (_, i) => {
+        const starClass = i < rate ? "star" : "star empty";
+        return `<span class="${starClass}" onclick="handleStarClick(${bookId}, ${i})">★</span>`; 
+    }).join("");
+}
+
 function getBook(book) {
     return `    
     <div class="table">
         <div class="product-title">${book.id}</div>
         <div class="product-title">${book.bookName}</div>
-        <div class="product-price">${book.price} ₪</div>
+        <div class="product-rate">${getStarsHtml(book.id, book.rate)}</div> <!-- הצגת הרייטינג בכוכבים -->
         <div class="actions">
             <button onclick="readBook(${book.id})">קרא</button>
             <button onclick="updateBook(${book.id})">עדכן</button>
@@ -11,6 +18,8 @@ function getBook(book) {
         </div>
     </div>`;
 }
+
+
 
 function renderBooks(books) {
     const booksContainer = document.getElementById("books-container");
@@ -68,7 +77,7 @@ function getBookDetails(book) {
         <img src="${book.img}" alt="${book.bookName}">
         <p><strong>דירוג:</strong></p>
         <div class="rating">
-            ${renderStars(book.id, book.rate)}
+            ${getStarsHtml(book.id, book.rate)} <!-- הצגת כוכבים -->
         </div>
     `;
 }

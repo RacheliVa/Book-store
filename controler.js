@@ -45,7 +45,7 @@ function addBook(event) {
     event.preventDefault();
     const bookName = document.getElementById("bookName").value;
     const price = document.getElementById("price").value;
-
+const img=document.getElementById("img").value;
     if (localStorage.getItem("indexBook"))
         GindexBook = JSON.parse(localStorage.getItem("indexBook"))
     else
@@ -54,7 +54,8 @@ function addBook(event) {
     const newBook = {
         id: GindexBook, 
         bookName: bookName,
-        price: price
+        price: price,
+        img:img,
     };
 
     Gbooks.push(newBook); 
@@ -90,5 +91,23 @@ function rateBook(bookId, rating) {
         Gbooks[bookIndex].rate = rating;
         localStorage.setItem("bookList", JSON.stringify(Gbooks)); 
         readBook(bookId); 
+        paginateBooks(Gbooks);
+    }
+}
+
+function handleStarClick(bookId, starIndex) {
+    // מצא את הספר לפי ה-ID
+    const book = Gbooks.find(book => book.id === bookId);
+    
+    if (book) {
+        // עדכן את הרייטינג של הספר
+        book.rate = starIndex + 1; // כיוון שהאינדקס מתחיל מאפס, יש להוסיף 1 כדי לשקף את המספר הנכון
+        
+        // עדכן את הספרים ברשימה ובתצוגה המוגדלת במידה והוא מוצג שם
+        paginateBooks(Gbooks); // עדכון הרשימה
+        const bookDetails = document.querySelector('.right-section');
+        if (bookDetails && bookDetails.dataset.bookId == bookId) {
+            bookDetails.innerHTML = getBookDetails(book); // עדכון התצוגה המוגדלת
+        }
     }
 }
