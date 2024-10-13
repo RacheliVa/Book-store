@@ -45,18 +45,21 @@ function renderPagination(books) {
         }
     };
     pagination.appendChild(prevButton);
+
     for (let i = 1; i <= totalPages; i++) {
         const pageButton = document.createElement("button");
         pageButton.innerText = i;
         pageButton.classList.toggle("active", i === currentPage); // מדגיש את העמוד הנוכחי
+        
+        // הוספת אירוע ללחיצה על כפתור העמוד
         pageButton.onclick = () => {
             currentPage = i;
             paginateBooks(books);
         };
+
         pagination.appendChild(pageButton);
     }
 
- 
     const nextButton = document.createElement("button");
     nextButton.innerText = "הבא";
     nextButton.disabled = currentPage === totalPages;
