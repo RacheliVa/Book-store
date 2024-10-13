@@ -73,12 +73,12 @@ function renderPagination(books) {
 function getBookDetails(book) {
     return `
         <h3><strong></strong> ${book.bookName}</h3>
-        <p><strong>מחיר:</strong>₪ ${book.price} </p>
-        <p><strong>מזהה:</strong> ${book.id}</p>
+        <p><strong>price:</strong>₪ ${book.price} </p>
+        <p><strong>id:</strong> ${book.id}</p>
         <img src="${book.img}" class="img" alt="${book.bookName}">
-        <p><strong>דירוג:</strong></p>
+        <p><strong>rate:</strong></p>
         <div class="rating">
-            ${getStarsHtml(book.id, book.rate)} <!-- הצגת כוכבים -->
+            ${getStarsHtml(book.id, book.rate)} 
         </div>
     `;
 }
@@ -92,7 +92,7 @@ function renderStars(bookId, currentRating) {
     return starsHtml;
 }
 
-let sortDirection = 1; // משתנה שמגדיר אם המיון הוא בסדר עולה או יורד
+let sortDirection = 1; 
 
 function sortBooks(column) {
     Gbooks.sort((a, b) => {
