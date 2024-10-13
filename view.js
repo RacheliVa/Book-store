@@ -1,4 +1,5 @@
 function getStarsHtml(bookId, rate) {
+    console.log(`Rendering stars for bookId ${bookId} with rate ${rate}`);
     return Array.from({ length: 5 }, (_, i) => {
         const starClass = i < rate ? "star" : "star empty";
         return `<span class="${starClass}" onclick="handleStarClick(${bookId}, ${i})">★</span>`; 
@@ -10,7 +11,9 @@ function getBook(book) {
     <div class="table">
         <div class="product-title">${book.id}</div>
         <div class="product-title">${book.bookName}</div>
-        <div class="product-rate">${getStarsHtml(book.id, book.rate)}</div> <!-- הצגת הרייטינג בכוכבים -->
+        <div class="product-rate">
+            <span class="rating" style="pointer-events: none;">${getStarsHtml(book.id, book.rate)}</span>
+        </div> 
         <div class="actions">
             <button onclick="readBook(${book.id})">קרא</button>
             <button onclick="updateBook(${book.id})">עדכן</button>
@@ -42,8 +45,6 @@ function renderPagination(books) {
         }
     };
     pagination.appendChild(prevButton);
-
-    // כפתורים לפי מספר העמודים
     for (let i = 1; i <= totalPages; i++) {
         const pageButton = document.createElement("button");
         pageButton.innerText = i;
@@ -55,7 +56,7 @@ function renderPagination(books) {
         pagination.appendChild(pageButton);
     }
 
-    // כפתור "הבא"
+ 
     const nextButton = document.createElement("button");
     nextButton.innerText = "הבא";
     nextButton.disabled = currentPage === totalPages;
@@ -82,6 +83,7 @@ function getBookDetails(book) {
     `;
 }
 
+
 function renderStars(bookId, currentRating) {
     let starsHtml = '';
     for (let i = 1; i <= 5; i++) {
@@ -89,9 +91,6 @@ function renderStars(bookId, currentRating) {
     }
     return starsHtml;
 }
-
-
-
 
 let sortDirection = 1; // משתנה שמגדיר אם המיון הוא בסדר עולה או יורד
 
@@ -112,4 +111,19 @@ function showAddBookForm() {
 
 function closeAddBookForm() {
     document.getElementById("add-book-form").style.display = "none"; 
+}
+
+function updateBook(id) {
+    const book = Gbooks.find(b => b.id === id); 
+    if (book) {
+        document.getElementById("updateBookName").value = book.bookName;
+        document.getElementById("updatePrice").value = book.price;
+        document.getElementById("updateImage").value = book.img; 
+        document.getElementById("update-book-form").setAttribute("data-book-id", id);
+        document.getElementById("update-book-form").style.display = "block";
+    }
+}
+
+function closeUpdateBookForm() {
+    document.getElementById("update-book-form").style.display = "none";
 }

@@ -217,12 +217,21 @@ button[type="submit"]:hover {
     background-color: #555;
 }
 
+/* .star {
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+}
+
+.star:hover {
+    color: gold;
+} */
+
 .star {
-    font-size: 24px; /* גודל הכוכב */
-    cursor: pointer; /* מאפשר להראות שהכוכב ניתן ללחיצה */
-    color: gold; /* צבע הכוכב המלא */
+    color: gold; /* צבע הכוכבים המלאים */
+    cursor: pointer; /* העכבר ייראה כמו מצביע */
 }
 
 .star.empty {
-    color: lightgray; /* צבע הכוכב הריק */
+    color: gray; /* צבע הכוכבים הריקים */
 }

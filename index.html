@@ -10,7 +10,7 @@
 
 <body onload="loadData()">
     <header>
-        <h1>כותרת ראשית</h1>
+        <h1>ERP Book</h1>
         <h2>
             <button class="load-button" onclick="showAddBookForm()">הוסף ספר</button>
             <button class="load-button" onclick="loadFromDump()">טען ספרים</button>
@@ -59,12 +59,17 @@
         <div class="modal-content">
             <span class="close" onclick="closeUpdateBookForm()">&times;</span>
             <h2>עדכן ספר</h2>
-            <form onsubmit="updateBook(event)"> <!-- הוספת event -->
+            <form onsubmit="saveUpdatedBook(event)"> <!-- שימוש בפונקציית שמירת העדכון -->
                 <label for="updateBookName">שם הספר:</label>
                 <input type="text" id="updateBookName" required>
+                
                 <label for="updatePrice">מחיר:</label>
                 <input type="text" id="updatePrice" required>
-                <button type="submit">אישור</button> <!-- הכפתור נמצא כאן -->
+                
+                <label for="updateImage">כתובת תמונה:</label>
+                <input type="text" id="updateImage">
+                
+                <button type="submit">אישור</button> <!-- כפתור אישור לשמירת העדכון -->
             </form>
         </div>
     </div>
