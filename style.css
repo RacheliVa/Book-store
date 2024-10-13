@@ -248,3 +248,16 @@ button[type="submit"]:hover {
     color: #000; /* צבע טקסט כהה */
     border: 1px solid #999; /* גבול אפור כהה יותר */
 }
+
+.right-section img {
+    width: 150px;  /* רוחב קבוע */
+    height: 200px; /* גובה קבוע */
+    object-fit: cover; /* ישמור על הפרופורציות של התמונה */
+}
+
+h3{
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+
+}

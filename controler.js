@@ -78,7 +78,7 @@ function addBook(event) {
 }
 
 let currentPage = 1;
-const booksPerPage = 3;
+const booksPerPage = 7;
 
 function paginateBooks(books) {
     const startIndex = (currentPage - 1) * booksPerPage;

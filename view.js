@@ -74,11 +74,10 @@ function renderPagination(books) {
 
 function getBookDetails(book) {
     return `
-        <h2>פרטי הספר</h2>
-        <p><strong>שם הספר:</strong> ${book.bookName}</p>
-        <p><strong>מחיר:</strong> ${book.price} ₪</p>
+        <h3><strong></strong> ${book.bookName}</h3>
+        <p><strong>מחיר:</strong>₪ ${book.price} </p>
         <p><strong>מזהה:</strong> ${book.id}</p>
-        <img src="${book.img}" alt="${book.bookName}">
+        <img src="${book.img}" class="img" alt="${book.bookName}">
         <p><strong>דירוג:</strong></p>
         <div class="rating">
             ${getStarsHtml(book.id, book.rate)} <!-- הצגת כוכבים -->
